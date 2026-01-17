@@ -1,3 +1,5 @@
+import pandas as pd
+import os
 from src.utils.io_utils import load_csv, save_csv
 from src.config.config import DATA_RAW_PATH, DATA_CLEAN_PATH
 
@@ -6,11 +8,11 @@ from src.config.config import DATA_RAW_PATH, DATA_CLEAN_PATH
 
 def preprocess_run():
     # Load raw data
-    data_path = "data/raw/sales.csv"  # adjust path if needed
-    if not os.path.exists(data_path):
-        raise FileNotFoundError(f"{data_path} not found")
+    # data_path = "data/raw/sales.csv"  # adjust path if needed
+    # if not os.path.exists(data_path):
+    #     raise FileNotFoundError(f"{data_path} not found")
 
-    df = pd.read_csv(data_path)
+    df = pd.read_csv(DATA_RAW_PATH)
 
     # Example preprocessing
     df['date'] = pd.to_datetime(df['date'])

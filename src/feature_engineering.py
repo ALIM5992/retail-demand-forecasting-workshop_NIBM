@@ -1,3 +1,6 @@
+import pandas as pd
+import os
+import joblib
 from src.utils.io_utils import load_csv, save_csv
 from src.config.config import DATA_CLEAN_PATH, DATA_FEATURE_PATH
 
@@ -29,9 +32,16 @@ def prepare_features(df, target='sales_qty', test_size=0.2, random_state=42):
     X = df.drop(columns=[target, 'date'])  # keep store_id/item_id for encoding
 
     # Encode categorical features
-    for col in ['store_id', 'item_id']:
-        le = LabelEncoder()
-        X[col] = le.fit_transform(X[col])
+    store_le = LabelEncoder()
+    X['store_id'] = store_le.fit_transform(X['store_id'])
+
+    item_le = LabelEncoder()
+    X['item_id'] = item_le.fit_transform(X['item_id'])
+
+    # save encoders
+    os.makedirs("models", exist_ok=True)
+    joblib.dump(store_le, "models/store_le.pkl")
+    joblib.dump(item_le, "models/item_le.pkl")
 
     # Split train/test
     X_train, X_test, y_train, y_test = train_test_split(

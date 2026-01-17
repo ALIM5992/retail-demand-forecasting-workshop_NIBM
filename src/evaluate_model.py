@@ -1,11 +1,8 @@
 from src.utils.io_utils import load_csv
 from src.utils.metrics import calculate_mape
 from src.config.config import DATA_FEATURE_PATH, FEATURE_COLS, TARGET_COL, MODEL_PATH
-
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 # src/evaluate.py
-
-
-
 
 def evaluate_model(model, X_test, y_test):
     """
