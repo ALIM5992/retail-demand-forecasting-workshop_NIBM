@@ -127,7 +127,7 @@ date,store_id,item_id,sales_qty
 
 ---
 
-## Notes for Students
+## Notes
 
 * ✅ Logging helps **monitor pipeline execution** and **debug issues**.
 * ✅ Feature engineering should **always return a DataFrame** ready for modeling.
