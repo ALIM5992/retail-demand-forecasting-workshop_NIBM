@@ -10,7 +10,7 @@ from src.config.config import (
     INFERENCE_OUTPUT_PATH,
 )
 
-
+#adding loggers
 
 from src.utils.logger import get_logger
 logger = get_logger("RetailForecastPipeline")
