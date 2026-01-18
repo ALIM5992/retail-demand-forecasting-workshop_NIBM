@@ -1,5 +1,5 @@
 
-# Retail Demand Forecasting Workshop
+# Retail Demand Forecasting Workshop - NIBM
 
 ## Overview
 
